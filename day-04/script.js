@@ -44,3 +44,60 @@ console.log(calculate('-', 10, 3));
 console.log(calculate('*', 10, 3));
 console.log(calculate('/', 10, 3));
 console.log(calculate('%', 10, 3));
+
+//* 4. Pay for your movie ticket
+const movieTicket = (age) => {
+  if (age < 18) {
+    return { [age]: '$3' };
+  } else if (age >= 18 && age <= 60) {
+    return { [age]: '$10' };
+  } else if (age > 60) {
+    return { [age]: '$8' };
+  }
+};
+
+console.table([12, 18, 65].map(movieTicket));
+
+//* 5. Horoscope Sign Checker
+const horoscope = (month) => {
+  month = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
+
+  switch (month) {
+    case 'January':
+    case 'February':
+    case 'March':
+    case 'April':
+      return { [month]: 'Aries' };
+    case 'May':
+    case 'June':
+      return { [month]: 'Taurus' };
+    case 'July':
+    case 'August':
+    case 'September':
+      return { [month]: 'Leo' };
+    case 'October':
+    case 'November':
+    case 'December':
+      return { [month]: 'Sagittarius' };
+    default:
+      return { [month]: 'Invalid month' };
+  }
+};
+
+console.table(['March', 'april', 'may'].map(horoscope));
+
+//* 6. Which Triangle?
+// A triangle has 3 sides. A Triangle type is determined by its sides:
+const triangle = (side1, side2, side3) => {
+  if (side1 === side2 && side2 === side3) {
+    return 'Equilateral Triangle';
+  } else if (side1 === side2 || side2 === side3 || side1 === side3) {
+    return 'Isosceles Triangle';
+  } else {
+    return 'Scalene Triangle';
+  }
+};
+
+console.log(triangle(2, 2, 2));
+console.log(triangle(2, 2, 3));
+console.log(triangle(2, 3, 4));
