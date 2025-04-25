@@ -105,13 +105,17 @@ const startSecretNumberGame = () => {
     numPrompt = prompt('Please enter a number between 1 to 10 😀');
   }
 
+  let result = '';
   const randomNum = Math.floor(Math.random() * 10) + 1;
-  if (numPrompt === randomNum) console.log('You Win');
-  else if (numPrompt > randomNum) console.log('Your guess is too high');
-  else if (numPrompt < randomNum) console.log('Your guess is too low');
+  if (numPrompt === randomNum) result = 'You Win';
+  else if (numPrompt > randomNum) result = 'Your guess is too high';
+  else if (numPrompt < randomNum) result = 'Your guess is too low';
   else prompt('Please Enter a number between 1 to 10');
+  console.log(result);
 
-  const playAgainPrompt = prompt('Do You Want to Play Again? (yes/no)');
+  const playAgainPrompt = prompt(
+    `${result}.\nDo You Want to Play Again? (yes/no)`,
+  );
   const playAgain = playAgainPrompt ? playAgainPrompt.toLowerCase() : 'no';
 
   if (playAgain === 'yes') startSecretNumberGame();
