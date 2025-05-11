@@ -40,3 +40,29 @@ const createMultiplier = (multiplier) => {
 
 const double = createMultiplier(2);
 double(10);
+
+//* 6. Write a function factory of counter to increment, decrement, and reset a counter. Use closure to refer the count value across the functions.
+
+const createCounterFactory = () => {
+  let count = 0;
+  return {
+    increment: () => {
+      count++;
+      console.log(count);
+    },
+    decrement: () => {
+      count--;
+      console.log(count);
+    },
+    reset: () => {
+      count = 0;
+      console.log(count);
+    },
+  };
+};
+
+const counterF = createCounterFactory();
+counterF.increment();
+counterF.increment();
+counterF.decrement();
+counterF.reset();
